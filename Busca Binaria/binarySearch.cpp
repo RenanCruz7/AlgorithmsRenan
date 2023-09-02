@@ -2,8 +2,6 @@
 using namespace std;
 
 // se atentar pois a busca binaria so pode ser feita com um array ordenado
-
-
 void binarySearch(int array[], int element, int length){
   int low = 0;
   int high = length;
