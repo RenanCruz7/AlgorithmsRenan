@@ -12,7 +12,6 @@ void regressive(int num){
 
 }
 
-
 int main() {
   int num = 50;
   regressive(num);
