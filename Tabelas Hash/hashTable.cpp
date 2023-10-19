@@ -11,7 +11,7 @@ using namespace std;
 class hashTable
 {
 private:
-    static const int gruposHash = 10;
+    static const int gruposHash = 1000;
     list<pair<string, double>> array[gruposHash];
 
 public:
@@ -20,6 +20,7 @@ public:
     void insercao(string chave, float valor);
     void remover(string chave);
     void imprimir();
+    void procurar(string chave);
 };
 
 bool hashTable::Vazio() const
@@ -117,6 +118,27 @@ void hashTable::imprimir()
     return;
 }
 
+void hashTable::procurar(string chave){
+    int valorHasheado = funcaoHash(chave);
+    auto& lista = array[valorHasheado];
+    auto celulaIterador = begin(lista);
+    bool chaveExiste = false;
+    for (; celulaIterador != end(lista); celulaIterador++)
+    {
+        if (celulaIterador->first == chave)
+        {
+            chaveExiste = true;
+            cout <<"O valor da chave eh:" << celulaIterador->second << endl ;
+            break;
+        }
+    }
+    if (!chaveExiste)
+    {
+        cout << "[CUIDADO] CHAVE NAO ENCONTRADA" << endl;
+    }
+    return;
+}
+
 int main()
 {
     hashTable HT;
@@ -141,6 +163,8 @@ int main()
     cout << "Posicao de Ovos no hash: " << HT.funcaoHash("Ovos") << endl;
     cout << "Posicao de Melancia no hash: " << HT.funcaoHash("Melancia") << endl;
     cout << "Posicao de Cerveja no hash: " << HT.funcaoHash("Cerveja") << endl;
+
+    HT.procurar("Banana");
 
     return 0;
 }
