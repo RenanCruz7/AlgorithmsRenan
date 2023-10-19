@@ -17,7 +17,7 @@ private:
 public:
     bool Vazio() const;
     int funcaoHash(string chave);
-    void insercao(string chave, double valor);
+    void insercao(string chave, float valor);
     void remover(string chave);
     void imprimir();
 };
@@ -49,7 +49,7 @@ int hashTable::funcaoHash(string chave) {
 }
 
 
-void hashTable::insercao(string chave, double valor)
+void hashTable::insercao(string chave, float valor)
 {
     // funcao hash devolve o lugar onde a chave e o valor deve ser inserido
     int valorHasheado = funcaoHash(chave);
@@ -123,22 +123,25 @@ int main()
 
     HT.Vazio();
 
-    HT.insercao("Banana",3.80);
-    HT.insercao("Maca",0.70);
-    HT.insercao("Pera",4.50);
-    HT.insercao("Leite",5);
-    HT.insercao("Ovos",15.0);
-    HT.insercao("Melancia",7.0);
-    HT.insercao("Cerveja",1.5);
-
-  
+    HT.insercao("Banana",float(3.80));
+    HT.insercao("Maca",float(0.70));
+    HT.insercao("Pera",float(4.50));
+    HT.insercao("Leite",float(5));
+    HT.insercao("Ovos",float(15));
+    HT.insercao("Melancia",float(7));
+    HT.insercao("Cerveja",float(2.50));
 
     HT.imprimir();
 
+    cout<< " --------------------------------------" << endl;
     cout << "Posicao de Banana no hash: " << HT.funcaoHash("Banana") << endl;
     cout << "Posicao de Maca no hash: " << HT.funcaoHash("Maca") << endl;
     cout << "Posicao de Pera no hash: " << HT.funcaoHash("Pera") << endl;
-    
+    cout << "Posicao de Leite no hash: " << HT.funcaoHash("Leite") << endl;
+    cout << "Posicao de Ovos no hash: " << HT.funcaoHash("Ovos") << endl;
+    cout << "Posicao de Melancia no hash: " << HT.funcaoHash("Melancia") << endl;
+    cout << "Posicao de Cerveja no hash: " << HT.funcaoHash("Cerveja") << endl;
+
     return 0;
 }
 
