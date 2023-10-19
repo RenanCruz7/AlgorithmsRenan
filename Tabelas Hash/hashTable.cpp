@@ -128,7 +128,7 @@ void hashTable::procurar(string chave){
         if (celulaIterador->first == chave)
         {
             chaveExiste = true;
-            cout <<"O valor da chave eh:" << celulaIterador->second << endl ;
+            cout <<"O valor da chave "<<celulaIterador->first<<" eh = "<< celulaIterador->second << endl ;
             break;
         }
     }
@@ -156,6 +156,7 @@ int main()
     HT.imprimir();
 
     cout<< " --------------------------------------" << endl;
+
     cout << "Posicao de Banana no hash: " << HT.funcaoHash("Banana") << endl;
     cout << "Posicao de Maca no hash: " << HT.funcaoHash("Maca") << endl;
     cout << "Posicao de Pera no hash: " << HT.funcaoHash("Pera") << endl;
@@ -164,6 +165,7 @@ int main()
     cout << "Posicao de Melancia no hash: " << HT.funcaoHash("Melancia") << endl;
     cout << "Posicao de Cerveja no hash: " << HT.funcaoHash("Cerveja") << endl;
 
+    cout<< " --------------------------------------" << endl;
     HT.procurar("Banana");
 
     return 0;
