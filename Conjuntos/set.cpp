@@ -16,5 +16,4 @@ int main(){
     for(int elemento: conjunto){
         std:: cout << elemento<< " ";
     }
-
 }
