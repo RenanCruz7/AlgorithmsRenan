@@ -43,6 +43,7 @@
         "typeinfo": "cpp",
         "cstring": "cpp",
         "list": "cpp",
-        "set": "cpp"
+        "set": "cpp",
+        "queue": "cpp"
     }
 }
