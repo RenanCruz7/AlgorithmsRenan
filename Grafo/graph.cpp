@@ -1,26 +1,33 @@
 #include <iostream>
 #include <list>
 
-class Grafo {
-private:
-    int V; // Número de vértices
-    std::list<int> *adj; // Lista de adjacência
+struct Graph
+{
+    int V;
+    std::list<int> *adj;
 
-public:
-    Grafo(int V) {
+    Graph(int V) {
         this->V = V;
         adj = new std::list<int>[V];
     }
+};
+
+class Grafo {
+    Graph *g;
+public:
+    Grafo(int V) {
+        g = new Graph(V);
+    }
 
     void adicionarAresta(int v1, int v2) {
-        adj[v1].push_back(v2);
-        adj[v2].push_back(v1);
+        g->adj[v1].push_back(v2);
+        g->adj[v2].push_back(v1);
     }
 
     void imprimirGrafo() {
-        for (int i = 0; i < V; ++i) {
-            std::cout << "Vértice " << i << " conectado a:";
-            for (const auto &v : adj[i]) {
+        for (int i = 0; i < g->V; ++i) {
+            std::cout << "Vertice " << i << " conectado a:";
+            for (const auto &v : g->adj[i]) {
                 std::cout << " " << v;
             }
             std::cout << std::endl;
